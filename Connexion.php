@@ -5,7 +5,6 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-
 <style>
 
     body {
@@ -134,6 +133,9 @@
 
 </style>
 
+
+<?php require('cpasbien.php')?>
+
 <form class="login" method="post">
     <div class="head">
         <h1><i class="fa fa-cloud"></i></h1>
@@ -146,13 +148,12 @@
             <label for="password">Password</label>
             <input name="password" type="password" id="password" placeholder="Password" />
             <?php
-            $password = 'password';
-            if (isset($_POST['password']) AND $_POST['password'] == $password) // Si le mot de passe est bon
+            if (isset($_POST['password']) AND $_POST['password'] == $passwordConfirmed)
             {
                 header( "Location: index.html");
                 // On affiche les codes
             }
-            else if(isset($_POST['password']) AND $_POST['password'] != $password){
+            else if(isset($_POST['password']) AND $_POST['password'] != $passwordConfirmed){
 
                 echo '<p class="MauvaisPassword">Mot de passe incorrect. Veuillez réessayer.</p>';}
             ?>
