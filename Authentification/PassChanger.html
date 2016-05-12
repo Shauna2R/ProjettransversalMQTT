@@ -1,0 +1,128 @@
+<!doctype>
+        <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+            <link rel="stylesheet" href="../css/style.css"> <!-- Resource style -->
+            <script src="js/jquery-2.1.1.js"></script> <!-- MenuStretch -->
+            <script src="js/StretchMenu.js"></script> <!-- MenuStretch -->
+            <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+            <title>PassChanger</title>
+
+        </head>
+
+        <style>
+
+            .cd-secondary-nav nav, .cd-secondary-nav ul, .cd-secondary-nav li, .cd-secondary-nav a {
+                height: 100%;
+                font-size: xx-large;
+            }
+
+            .field{
+                text-align: center;
+            }
+
+            .Titre_PACH{
+                font-size: xx-large;
+                text-align: center;
+            }
+
+            .form_menu_pach {
+                position: static;
+                width: 50%;
+                height: 50%;
+                border-radius: 5%;
+                text-align: center;
+                margin: auto;
+                background: white;
+                border-color: rgba(237, 49, 9, 0.78);
+                border-style: outset;
+                border-width: 10px;
+            }
+
+            .FORM_PACH{
+                border: 2px solid orangered;
+                width: 35%;
+                border-radius: 5%;
+                text-align: center;
+            }
+
+        </style>
+
+<header class="cd-header">
+    <nav class="cd-stretchy-nav">
+        <a class="cd-nav-trigger" href="#0"> <span class="cd-nav-trigger-icon"></span> </a>
+        <ul>
+            <li><a href="Authentification/parametre.php"><span class="cd-stretchy-nav-label">Paramètres</span><span class="cd-stretchy-nav-icon fa fa-cogs" aria-hidden="true" ></span></a></li>
+            <li><a href="Authentification/Connexion.php"><span class="cd-stretchy-nav-label">Déconnexion</span><span class="cd-stretchy-nav-icon fa fa-user-times" aria-hidden="true"></span></a></li>
+        </ul>
+        <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
+</header>
+
+</section> <!-- #cd-intro -->
+
+<div class="cd-secondary-nav">
+    <a href="#0" class="cd-secondary-nav-trigger">Menu<span></span></a> <!-- button visible on small devices -->
+    <nav>
+        <ul>
+            <br>
+            <a href="../index.html" class="fa fa-cloud" id="Nuage_Menu"></a>
+        </ul>
+    </nav>
+</div> <!-- .cd-secondary-nav -->
+
+<main class="cd-main-content">
+    <section id="cd-placeholder-1" class="cd-section cd-container">
+
+        <section id="Menu_PACH">
+            <?php
+        require('cpasbien.php');
+            if(isset($_POST['password']) && isset($_POST['newPassword'])&& isset($_POST['newPassword2'])
+                && $_POST['password'] == $passwordConfirmed
+                && $_POST['newPassword'] === $_POST['newPassword2']){
+                $passwordConfirmed = $_POST['newPassword'];
+                file_put_contents('tresSensible.json', "{\"password\":".json_encode($passwordConfirmed)."}");
+                var_dump(file_get_contents("tresSensible.json"));
+                echo "Nouveau mot de passe";
+    }?>
+
+            <body>
+
+            <section class="Form_Menu_PACH">
+                <br><br>
+            <h1 class="Titre_PACH">Changement Mot De Passe <i class="fa fa-key" aria-hidden="true"></i></h1><br><br><br><br>
+
+            <form class="Field" method="post">
+                <label for="password">Ancien Mot de Passe : </label>
+                <input name="password" type="password" class="FORM_PACH" id="password" placeholder="" /><br><br>
+
+                <label for="password">Nouveau Mot de Passe : </label>
+                <input name="newPassword" type="password" class="FORM_PACH" id="password" placeholder="" /><br><br>
+
+                <label for="password">Confirmation Nouveau Mot de Passe : </label>
+                <input name="newPassword2" type="password" class="FORM_PACH" id="password" placeholder="" /><br><br>
+
+                <div class="Bouton-Form shadow Animation_Bouton orange">
+                    <button type="submit"><span>Appliquer</span></button>
+                </div>
+            </form>
+
+            </section>
+
+        <div>
+            <canvas id="line" height="300" width="200"></canvas>
+        </div>
+    </section> <!-- #cd-placeholder-1 -->
+
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+
+</main>
+</body>
+</html>
