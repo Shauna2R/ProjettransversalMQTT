@@ -231,7 +231,7 @@ Intro
 
 @media only screen and (min-width: 1170px) {
   #cd-intro {
-      height: 890px;
+      height: 565px;
       background: url(../img/intro-background.jpg);
       display: block;
       background-size: cover;
