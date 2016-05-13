@@ -15,9 +15,6 @@
         $passwordConfirmed = $_POST['newPassword'];
 
         file_put_contents('tresSensible.json', "{\"password\":".json_encode($passwordConfirmed)."}");
-
-
-        var_dump(file_get_contents("tresSensible.json"));
         echo "Nouveau mot de passe";
     }
     ?>
@@ -38,5 +35,49 @@
     </div>
 </form>
 
+<?php
+//Ajouter groupe
+if(isset($_POST['groupe']) && $_POST["groupecree"] == true){
+    json_encode(array_push($groupeName,$_POST["groupe"]));
+    file_put_contents('groupe.json', "{\"name\":".json_encode($groupeName)."}");
+    echo "Nouveaugroupe crée";
+}
+?>
+
+<form class="field" method="post">
+
+<label for="Creer groupe">Groupe</label>
+<input name="groupe" type="text" id="groupe" placeholder="" />
+
+<div class="buttonPart">
+    <input type="submit" name="groupecree"><span>Connexion</span></input><p></p>
+</div>
+</form>
+
+<table style="border: solid red 2px">
+    <tr>Nom des Groupes</tr>
+    <?php
+    //lister groupe
+    $acc = 0;
+    foreach($groupeName as $groupe){?>
+        <td style="border: solid red 1px"><?php echo $groupe; ?></td>
+        <td> <form method="post"><input type="submit" value="supprimer" name="supprimer"></form></input> </td>
+    <?php
+        $acc+=1;
+    }?>
+</table>
+
+    <?php
+    //supprimer groupe
+    if($_POST["supprimer"]){
+        unset($groupeName[$acc-1]);
+    }
+    var_dump($groupeName);
+    file_put_contents('groupe.json', "{\"name\":".json_encode($groupeName)."}");
+?>
+
+
 </body>
 </html>
+
+
