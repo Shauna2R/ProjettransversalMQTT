@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Jaldi:700,400' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/modernizr.js"></script>
+  	
+	<title>Projet transversal</title>
+</head>
+<body>
+	<section class="cd-slider-wrapper">
+		<ul class="cd-slider">
+			<li class="visible">
+				<div>
+					<h2>Page réglage</h2>
+					<section>
+						<br>Cette page sera destiné à :</br>
+						<br>- Assembler	les	capteurs	dans des	groupes. Un	capteur	ne	peut	être	que	dans un groupe	à la fois.</br>
+						<br>- L’utilisateur	devra	pourvoir	ajouter/supprimer/renommer un groupe. Lors	de	la	suppression	d’un	groupe,	ses capteurs	deviennent justes	« Sans groupe » et	afficher	en	bas	de	la	liste.</br>
+						<br>- Afficher/masquer certains capteurs.</br>
+					</section>
+
+				</div>
+			</li>
+				
+			<li>
+				<div>
+					<h2>Ajouter groupe</h2>
+					<form name="formulaire_1" method="post" action="ajouter.php">
+						<p>Entrer le nom du groupe: <input type="text" name="ajouter"></p>
+						<p>Sélectionner un capteur</p>
+						<FORM>
+							<INPUT type="checkbox" name="choix1" value="1"> capteur 1
+							<INPUT type="checkbox" name="choix2" value="2"> capteur 2
+							<INPUT type="checkbox" name="choix3" value="3"> capteur 3
+							<INPUT type="checkbox" name="choix4" value="4"> capteur 4
+						</FORM>
+						<input type="submit" value="Valider" />
+					</form>
+
+				</div>
+			</li>
+
+			<li>
+				<div>
+					<h2>Supprimer groupe</h2>
+					<form name="formulaire_2" method="post" action="supprimer.php">
+						</p>Supprimer un groupe: <input type="text" name="supprimer"></p>
+						<input type="submit" value="Valider">
+					</form>
+
+				</div>
+			</li>
+
+			<li>
+				<div>
+					<h2>Renommer groupe</h2>
+					<form name="formulaire_3" method="post" action="renommer.php">
+						<p>Sélectionner un capteur</p>
+						<FORM>
+							<INPUT type="checkbox" name="choix1" value="1"> capteur 1
+							<INPUT type="checkbox" name="choix2" value="2"> capteur 2
+							<INPUT type="checkbox" name="choix3" value="3"> capteur 3
+							<INPUT type="checkbox" name="choix4" value="4"> capteur 4
+						</FORM>
+						</p>Renommer ce groupe: <input type="text" name="renommer"></p>
+						<input type="submit" value="Valider">
+					</form>
+
+				</div>
+			</li>
+		</ul> <!-- .cd-slider -->
+	
+		<ol class="cd-slider-navigation">
+			<li class="selected"><a href="#0"><em>Page réglage</em></a></li>
+			<li><a href="#0"><em>Ajouter groupe</em></a></li>
+			<li><a href="#0"><em>Supprimer groupe</em></a></li>
+			<li><a href="#0"><em>Renommer groupe</em></a></li>
+
+		</ol> <!-- .cd-slider-navigation -->
+		
+		<div class="cd-svg-cover" data-step1="M1402,800h-2V0.6c0-0.3,0-0.3,0-0.6h2v294V800z" data-step2="M1400,800H383L770.7,0.6c0.2-0.3,0.5-0.6,0.9-0.6H1400v294V800z" data-step3="M1400,800H0V0.6C0,0.4,0,0.3,0,0h1400v294V800z" data-step4="M615,800H0V0.6C0,0.4,0,0.3,0,0h615L393,312L615,800z" data-step5="M0,800h-2V0.6C-2,0.4-2,0.3-2,0h2v312V800z" data-step6="M-2,800h2L0,0.6C0,0.3,0,0.3,0,0l-2,0v294V800z" data-step7="M0,800h1017L629.3,0.6c-0.2-0.3-0.5-0.6-0.9-0.6L0,0l0,294L0,800z" data-step8="M0,800h1400V0.6c0-0.2,0-0.3,0-0.6L0,0l0,294L0,800z" data-step9="M785,800h615V0.6c0-0.2,0-0.3,0-0.6L785,0l222,312L785,800z" data-step10="M1400,800h2V0.6c0-0.2,0-0.3,0-0.6l-2,0v312V800z">
+			<svg height='100%' width="100%" preserveAspectRatio="none" viewBox="0 0 1400 800">
+				<title>SVG cover layer</title>
+				<desc>an animated layer to switch from one slide to the next one</desc>
+				<path id="cd-changing-path" d="M1402,800h-2V0.6c0-0.3,0-0.3,0-0.6h2v294V800z"/>
+			</svg>
+		</div> <!-- .cd-svg-cover -->
+	</section> <!-- .cd-slider-wrapper -->
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/snap.svg-min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
